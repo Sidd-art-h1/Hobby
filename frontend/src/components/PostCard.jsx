@@ -72,7 +72,7 @@ export default function PostCard({ post, onDeleted }) {
             <p className="text-sm font-semibold text-gray-900 group-hover:text-violet-700">
               {post.user?.firstname} {post.user?.lastname}
             </p>
-            <p className="text-xs text-gray-500 text-gray-400">
+            <p className="text-xs text-gray-400">
               {post.createdAt ? new Date(post.createdAt).toLocaleDateString() : "just now"}
             </p>
           </div>

@@ -14,3 +14,9 @@ backend/src/main/resources/application.properties
 *.log
 .idea/
 .vscode/
+
+# Python / Streamlit
+__pycache__/
+*.py[cod]
+uploads/
+*.db

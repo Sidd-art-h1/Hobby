@@ -44,7 +44,7 @@ public class PostServiceImplementation implements PostService{
 		Post post = findPostById(postId);
 		User user = userService.findUserbyid(userId);
 		
-		if(post.getUser().getId() == user.getId()) {
+		if (post.getUser() == null || !post.getUser().getId().equals(user.getId())) {
 			throw new Exception("you cannot delete this post");
 		}
 		

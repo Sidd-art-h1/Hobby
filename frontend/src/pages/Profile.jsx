@@ -55,7 +55,7 @@ export default function Profile() {
             {profile.firstname} {profile.lastname}
           </h1>
           <p className="text-gray-500 text-sm">{profile.email}</p>
-          <div className="flex gap-4 mt-2 text-xs text-gray-500 text-gray-600">
+          <div className="flex gap-4 mt-2 text-xs text-gray-500">
             <span>{posts.length} entries</span>
             <span>{profile.followers?.length ?? 0} followers</span>
             <span>{profile.following?.length ?? 0} following</span>

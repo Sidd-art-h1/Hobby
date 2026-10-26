@@ -43,10 +43,18 @@ public class UserserviceImplementation implements Userservice{
 
 	@Override
 	public User followUser(Integer reqUserId, Integer userId2) throws Exception {
+		if (reqUserId.equals(userId2)) {
+			throw new Exception("You cannot follow yourself");
+		}
 		User reqUser = findUserbyid(reqUserId);
 		User user2 = findUserbyid(userId2);
-		user2.getFollowers().add(reqUser.getId());
-		reqUser.getFollowing().add(user2.getId());
+		if (user2.getFollowers().contains(reqUser.getId())) {
+			user2.getFollowers().remove(reqUser.getId());
+			reqUser.getFollowing().remove(user2.getId());
+		} else {
+			user2.getFollowers().add(reqUser.getId());
+			reqUser.getFollowing().add(user2.getId());
+		}
 		
 		userRepository.save(reqUser);
 		userRepository.save(user2);
@@ -66,7 +74,6 @@ public class UserserviceImplementation implements Userservice{
 		if(user.getLastname()!=null) Olduser.setLastname(user.getLastname());
 		if(user.getPassword()!=null) Olduser.setPassword(user.getPassword());
 		if(user.getEmail()!=null) Olduser.setEmail(user.getEmail());
-		if(user.getId()!=null) Olduser.setId(user.getId());
 		if(user.getGender()!=null) Olduser.setGender(user.getGender());
 		
 		

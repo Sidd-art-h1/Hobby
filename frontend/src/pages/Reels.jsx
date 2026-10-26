@@ -85,7 +85,7 @@ export default function Reels() {
           <div key={reel.id} className="border border-gray-200 shadow-sm bg-white/70 rounded-lg p-2">
             <video src={reel.video} controls className="w-full aspect-[9/16] object-cover rounded-lg bg-ink/5" />
             <p className="text-xs font-medium mt-1.5 truncate">{reel.title || "untitled"}</p>
-            <Link to={`/profile/${reel.user?.id}`} className="text-xs text-gray-500 text-gray-400 hover:text-violet-700">
+            <Link to={`/profile/${reel.user?.id}`} className="text-xs text-gray-400 hover:text-violet-700">
               {reel.user?.firstname} {reel.user?.lastname}
             </Link>
           </div>

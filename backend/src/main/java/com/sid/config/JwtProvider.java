@@ -22,7 +22,9 @@ public class JwtProvider {
 	}
 	public static String getEmailFromJwtToken(String jwt) {
 		//Bearer token
-		jwt = jwt.substring(7);
+		if (jwt != null && jwt.startsWith("Bearer ")) {
+			jwt = jwt.substring(7);
+		}
 		
 		Claims claims = Jwts.parser()
 		        .verifyWith(key)
