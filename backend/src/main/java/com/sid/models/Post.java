@@ -30,7 +30,7 @@ public class Post {
 	@ManyToMany
 	private List<User> liked = new ArrayList<>();
 	private LocalDateTime createdAt;
-	@OneToMany
+	@OneToMany(mappedBy="post")
 	private List<comment> comments = new ArrayList<>();
 	
 public List<comment> getComments() {
