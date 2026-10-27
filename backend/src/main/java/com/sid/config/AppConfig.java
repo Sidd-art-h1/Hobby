@@ -32,7 +32,7 @@ public class AppConfig {
             	    .requestMatchers("/users").permitAll()
             	    .requestMatchers("/auth/**").permitAll()      // or "/api/auth/**"
             	    .requestMatchers("/api/**").authenticated()
-            	    .anyRequest().permitAll()
+            	    .anyRequest().authenticated()
             	)
             .addFilterBefore(new jwtValidator(), BasicAuthenticationFilter.class)
             .httpBasic(Customizer.withDefaults());
